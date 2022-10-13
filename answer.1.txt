@@ -1,0 +1,28 @@
+1>Calculatye total sales per year
+ans>select year_id,count(sales) from sales_order_data_orc group by year_id;
+
+2>Find a product for which maximum orders were placed
+ans>select productline,count(sales) as max_order from sales_order_data_orc group by productline order by max_order desc limit 1;
+
+3>Calculate the total sales for each quarter
+ans>select qtr_id,count(sales) as total_sales from sales_order_data_orc group by qtr_id;
+
+4>In which quarter sales was minimum
+ans>select qtr_id,count(sales) as min_sales from sales_order_data_orc group by qtr_id order by min_sales asc limit 1;
+
+5>In which country sales was maximum and in which country sales was minimum
+for max:
+ans>select country,count(sales) as max_sales from sales_order_data_orc group by country order by max_sales desc limit 1;
+for min:
+ans>select country,count(sales) as min_sales from sales_oredr_data_orc group by country order by min_sales asc limit 1;
+
+6>Calculate quartelry sales for each city
+ans>select city,count(sales) as qtr_sales from sales_oredr_data_orc group by city order by qtr_sales; 
+
+7> Find a month for each year in which maximum number of quantities were sold
+for year=2003
+ans>SELECT month_id,year_id,count(sales) as max_sales from sales_oredr_data_orc where year_id=2003 order by max_sales;
+for year=2004
+ans>SELECT month_id,year_id,count(sales) as max_sales from sales_oredr_data_orc where year_id=2004 order by max_sales;
+for year=2005
+ans>SELECT month_id,year_id,count(sales) as max_sales from sales_oredr_data_orc where year_id=2005 order by max_sales;
